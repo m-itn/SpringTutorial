@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+//apply plugin: 'spring-boot'
+
+mainClassName = 'com.spring.example.DrawingApplication'
+
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    jcenter()
+    maven { url "http://repo.spring.io/libs-release" }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+//    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+dependencies {
+//    compile("org.springframework.boot:spring-boot-starter-web")
+//    compile("org.springframework.boot:spring-boot-starter-web:1.2.0.BUILD-SNAPSHOT")
+    compile "joda-time:joda-time:2.2"
+    compile 'org.springframework:spring-core:3.2.3.RELEASE'
+    compile 'org.springframework:spring-webmvc:3.2.3.RELEASE'
+
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    runtime 'org.slf4j:slf4j-log4j12:1.7.5'
+
+    testCompile 'org.springframework:spring-test:3.2.3.RELEASE'
+    testCompile 'javax.servlet:javax.servlet-api:3.0.1'
+
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version =  '0.1.0'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.11'
+}
+
